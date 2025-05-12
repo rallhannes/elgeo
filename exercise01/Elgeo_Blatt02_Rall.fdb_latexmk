@@ -1,5 +1,5 @@
 # Fdb version 4
-["lualatex"] 1745962046.23562 "exercise01.tex" "exercise01.pdf" "exercise01" 1745962047.9502 0
+["lualatex"] 1747075026.73142 "Elgeo_Blatt02_Rall.tex" "Elgeo_Blatt02_Rall.pdf" "Elgeo_Blatt02_Rall" 1747075028.34141 0
   "/home/hr/.config/texlive/2025/texmf-var/luatex-cache/generic/fonts/otl/lmroman12-bold.luc" 1745334138.94958 128293 f49692f17a02130b29ecd89b45a3635b ""
   "/home/hr/.config/texlive/2025/texmf-var/luatex-cache/generic/fonts/otl/lmroman12-italic.luc" 1745334154.21993 135237 09834727ee9474fb4b53960ba9930e96 ""
   "/home/hr/.config/texlive/2025/texmf-var/luatex-cache/generic/fonts/otl/lmroman12-regular.luc" 1745329391.44202 127664 e83e1e91e5f8f37f69eeb023165be739 ""
@@ -173,12 +173,12 @@
   "/opt/texlive/2025/texmf-var/web2c/luahbtex/lualatex.fmt" 1745324674 6371818 8dd54c0e5156af0e1a0d4cb8418843f5 ""
   "Blatt_01_Aufgabe_2_ii.png" 1745953906.45685 421211 b1538b6479dca02c663e9a92048f441c ""
   "Blatt_01_Aufgabe_3_i.png" 1745960590.18676 282274 f7c17b289c68c6e238c71c14f43c61c8 ""
-  "exercise01.aux" 1745962047.76007 640 a5aca9668f37704d1e2a477143a33719 "lualatex"
-  "exercise01.out" 1745962047.01005 0 d41d8cd98f00b204e9800998ecf8427e "lualatex"
-  "exercise01.tex" 1745962045.56002 7385 89bd15d74af0e13d4185b6fafb0139a3 ""
+  "Elgeo_Blatt02_Rall.aux" 1747075028.18273 640 a5aca9668f37704d1e2a477143a33719 "lualatex"
+  "Elgeo_Blatt02_Rall.out" 1747075027.51605 0 d41d8cd98f00b204e9800998ecf8427e "lualatex"
+  "Elgeo_Blatt02_Rall.tex" 1745962045.56002 7385 89bd15d74af0e13d4185b6fafb0139a3 ""
   (generated)
-  "exercise01.aux"
-  "exercise01.log"
-  "exercise01.out"
-  "exercise01.pdf"
+  "Elgeo_Blatt02_Rall.aux"
+  "Elgeo_Blatt02_Rall.log"
+  "Elgeo_Blatt02_Rall.out"
+  "Elgeo_Blatt02_Rall.pdf"
   (rewritten before read)
