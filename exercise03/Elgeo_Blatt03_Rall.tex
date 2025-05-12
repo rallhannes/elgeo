@@ -1,0 +1,51 @@
+%! TEX program = lualatex
+\documentclass[12pt,a4paper]{article} 
+
+% Packages for formatting
+\usepackage{fontspec}
+\usepackage[ngerman]{babel}
+\usepackage{geometry} 
+\geometry{margin=1in} 
+\usepackage{setspace} 
+\usepackage{hyperref} 
+\usepackage{xcolor}
+\usepackage{amsmath} % for align*
+\usepackage{amsthm} % neue Theorem-Umgebungen
+\usepackage{enumitem} % für schöne Listen (Teilaufgaben)
+\usepackage{mathbbol}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{gensymb}
+
+% Style settings
+%\pagecolor{black}      % sets background color to black 
+%\color{white}          % sets text color to white
+
+% Change subsection to use a, b, c instead of 1, 2, 3
+\renewcommand{\thesubsection}{\alph{subsection})} 
+
+% Aufgaben-Umgebung definieren 
+\newtheorem{aufgabe}{Aufgabe}
+
+% Title page info 
+\title{Blatt 01} 
+\author{Hannes Rall \\ Albert-Ludwigs-University} 
+\date{\today} 
+
+\begin{document} 
+% Title page 
+\begin{titlepage}     
+    \centering     
+    \vspace*{2cm}     
+    {\Huge\itshape Blatt 01\par}     
+    \vspace{2cm}     
+    {\Large\textsc{Hannes Rall}\par}     
+    \vfill     
+    {\large Albert-Ludwigs-University\\}     
+    \vspace{1cm}     
+    {\large\today\par}
+\end{titlepage}
+
+\newpage
+\section*{Aufgabe 7}
+\end{document}
