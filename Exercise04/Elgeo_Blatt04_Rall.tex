@@ -1,0 +1,166 @@
+%! TEX program = lualatex
+\documentclass[12pt,a4paper]{article} 
+
+% Packages for formatting
+\usepackage{fontspec}
+\usepackage[ngerman]{babel}
+\usepackage{geometry} 
+\geometry{margin=1in} 
+\usepackage{setspace} 
+\usepackage{hyperref} 
+\usepackage{xcolor}
+\usepackage{amsmath} % for align*
+\usepackage{amsthm} % neue Theorem-Umgebungen
+\usepackage{enumitem} % für schöne Listen (Teilaufgaben)
+\usepackage{mathbbol}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{gensymb}
+
+% Style settings
+%\pagecolor{black}      % sets background color to black 
+%\color{white}          % sets text color to white
+
+% Change subsection to use a, b, c instead of 1, 2, 3
+\renewcommand{\thesubsection}{\alph{subsection})}
+
+% Title page info 
+\title{Blatt 04} 
+\author{Hannes Rall \\ Albert-Ludwigs-University} 
+\date{\today} 
+
+\begin{document} 
+% Title page 
+\begin{titlepage}     
+    \centering     
+    \vspace*{2cm}     
+    {\Huge\itshape Blatt 04\par}     
+    \vspace{2cm}     
+    {\Large\textsc{Hannes Rall}\par}     
+    \vfill     
+    {\large Albert-Ludwigs-University\\}     
+    \vspace{1cm}     
+    {\large\today\par}
+\end{titlepage}
+
+\newpage
+\section*{Aufgabe 11}
+\subsection*{(i)}
+Sei pqr ein Dreieck mit $\angle pqr = \frac{\pi}{2}$. Seien $\vec{a} = r - q$, $\vec{b} = r - p$ und $\vec{c} = q-p$.
+\subsubsection*{(a)}
+Nach der Definition für Winkel, ist $\angle qpr = \arccos \left(\frac{\langle \vec{b}, \vec{c} \rangle}{|\vec{b}| \cdot |\vec{c}|}\right) \Leftrightarrow \cos(\angle qpr) = \frac{\langle \vec{b}, \vec{c} \rangle}{|\vec{b}| \cdot |\vec{c}|}$\\
+Es gilt $\vec{a} + \vec{c} = r - q + q - p = r - p = \vec{b}$.\\
+Nun folgt \\
+\begin{align*}
+    \cos(\angle qpr) 
+    &= \frac{\langle \vec{b}, \vec{c} \rangle}{|\vec{b}| \cdot |\vec{c}|} = \frac{\sqrt{\langle \vec{b}, \vec{c} \rangle^{2}}}{|\vec{b}| \cdot |\vec{c}|} = \frac{\sqrt{\langle \vec{a} + \vec{c}, \vec{c} \rangle^{2}}}{|\vec{b}| \cdot |\vec{c}|} \\
+    &= \frac{\sqrt{(\langle \vec{a}, \vec{c} \rangle + \langle \vec{c}, \vec{c}))^{2}}}{|\vec{b}| \cdot |\vec{c}|} = \frac{\sqrt{\langle \vec{c}, \vec{c} \rangle^{2}}}{|\vec{b}| \cdot |\vec{c}|} =\frac{\sqrt{|\vec{c}|}^{2}}{|\vec{b}| \cdot |\vec{c}|} = \frac{|\vec{c}|^{2}}{|\vec{b}| \cdot |\vec{c}| } = \frac{|\vec{c}|}{|\vec{b}|} \\
+    &= \frac{d(p, q)}{d(p, r)}
+\end{align*}
+
+\subsubsection*{(b)}
+\begin{align*}
+    d(p, r)^{2} &= \langle \vec{b}, \vec{b} \rangle = \langle \vec{a} + \vec{c}, \vec{a} + \vec{c} \rangle = \langle \vec{a}, \vec{a} \rangle + 2\langle \vec{a}, \vec{c} \rangle + \langle \vec{c}, \vec{c} \rangle \\
+                &= \langle \vec{a}, \vec{a} \rangle + \langle \vec{c}, \vec{c} \rangle = \sqrt{\langle \vec{a}, \vec{a} \rangle}^{2}  + \sqrt{\langle \vec{c}, \vec{c} \rangle}^{2} \\
+                &= d(p, q)^{2} + d(q, r)^{2}
+\end{align*}
+
+\subsubsection*{(c)}
+Wir wissen, dass $\sin(x)^{2} + \cos(x)^2 = 1 \Leftrightarrow \sin(x)^{2} = 1 - \cos(x)^{2}$ \\
+und somit $\sin(x) = \pm \sqrt{(1-\cos(x)^{2}}$. Nun nutzen wir (a):
+\begin{align*}
+    \sin(\angle qpr) &= \pm \sqrt{1-\cos(\angle qpr)^{2}} = \pm \sqrt{\frac{d(p, r)^{2}}{d(p, r)^{2}} - \frac{d(p, q)^{2}}{d(p, r)^{2}}} = \pm \sqrt{\frac{d(r, q)^{2}}{d(p, r)^{2}}} \\
+                     &= \pm \frac{d(r, q)}{d(p, r)}
+\end{align*}
+
+\newpage
+\subsection*{(ii)}
+Gegeben seien zwei Strahlen durch einen Punkt $Z$, die die Geraden $g_1$ und $g_2$ in den Punkten $A, B$ bzw. $C, D$ schneiden. Es gelte: 
+\[ 
+    \frac{|ZA|}{|ZB|} = \frac{|ZC|}{|ZD|} 
+\]
+\noindent Zu zeigen: $g_1 \parallel g_2$.\\
+\noindent \textit{Beweis durch Widerspruch:}\\ 
+ Angenommen, $g_1$ und $g_2$ sind \emph{nicht} parallel. 
+ Dann gibt es durch $C$ eine Parallele $h$ zu $g_1$, die den zweiten Strahl in einem Punkt $D'$ schneidet. Nach dem ersten Strahlensatz gilt für diese Parallele: 
+
+\[ 
+    \frac{|ZA|}{|ZB|} = \frac{|ZC|}{|ZD'|} 
+\] 
+
+\noindent Wegen der Voraussetzung gilt aber auch: 
+
+\[ 
+    \frac{|ZA|}{|ZB|} = \frac{|ZC|}{|ZD|} 
+\]
+\noindent Also ist $|ZD| = |ZD'|$, d.\,h. $D = D'$. Das steht im Widerspruch zur Annahme, dass $g_2$ und $h$ verschieden sind.\\
+
+\noindent \textbf{Folgerung:} Die Annahme war falsch, also sind $g_1$ und $g_2$ parallel.
+
+\newpage
+\section*{Aufgabe 12}
+\subsection*{(i)}
+Seien $\vec{a}$ und $\vec{b} \in \mathbb{R}^{2}$. Wenn $\vec{a} \perp \vec{b}$, dann gilt der Satz des Pythagoras, also $|\vec{b} - \vec{a}|^{2} = |\vec{a}|^{2} + |\vec{b}|^{2}$. Nun ist 
+\begin{align*}
+    |\vec{b} - \vec{a}|^{2} = |\vec{a}|^{2} + |\vec{b}|^{2} &\Leftrightarrow \langle\vec{b} - \vec{a}, \vec{b} - \vec{a} \rangle = \langle\vec{a}, \vec{a} \rangle + \langle \vec{b}, \vec{b} \rangle \\
+                                                            &\Leftrightarrow \langle\vec{b}, \vec{b} - \vec{a} \rangle + \langle- \vec{a}, \vec{b} - \vec{a} \rangle  = \langle\vec{a}, \vec{a} \rangle + \langle \vec{b}, \vec{b} \rangle \\
+    &\Leftrightarrow \langle\vec{b}, \vec{b}\rangle - 2\cdot \langle\vec{b},\vec{a} \rangle  + \langle \vec{a}, \vec{a} \rangle  = \langle\vec{a}, \vec{a} \rangle + \langle \vec{b}, \vec{b} \rangle \\
+    &\Leftrightarrow - 2\cdot \langle\vec{b},\vec{a} \rangle = 0 \\
+    &\Leftrightarrow \langle \vec{a}, \vec{b} \rangle = 0
+\end{align*}
+Wenn also $\langle \vec{a}, \vec{b} \rangle \neq 0$, dann ist $\vec{a}$ nicht senkrecht zu $\vec{b}$.
+
+\subsection*{(ii)}
+Seien  
+\[ 
+\vec{a} = \begin{pmatrix} a_1 \\ a_2 \\ a_3 \end{pmatrix}, \quad 
+\vec{b} = \begin{pmatrix} k a_1 \\ k a_2 \\ k a_3 \end{pmatrix} 
+\] 
+mit $k \in \mathbb{R}$.\\
+\textbf{Skalarprodukt:} 
+\begin{align*}
+    \vec{a} \cdot \vec{b}  &= a_1 \cdot (k a_1) + a_2 \cdot (k a_2) + a_3 \cdot (k a_3) \\
+                           &= k (a_1^2 + a_2^2 + a_3^2) \\
+                           &= k \, (\vec{a} \cdot \vec{a}) \\
+                           &= k \, |\vec{a}|^2 
+\end{align*}
+\textbf{Längen der Vektoren:} 
+\[ 
+|\vec{a}| = \sqrt{a_1^2 + a_2^2 + a_3^2} 
+\] 
+\[ 
+|\vec{b}| = \sqrt{(k a_1)^2 + (k a_2)^2 + (k a_3)^2} = |k|\,|\vec{a}| 
+\]
+\textbf{Produkt der Längen:} 
+\[
+|\vec{a}| \cdot |\vec{b}| = |\vec{a}| \cdot |k|\,|\vec{a}| = |k|\,|\vec{a}|^2 
+\]
+Somit ist für $k>0$ das Skalarprodukt von $\vec{a}$ und $\vec{b}$ gleich dem Produkt ihrer Längen. Für $k<0$ ist das Skalarprodukt plus das Produkt ihrer Längen gleich 0.
+
+\newpage
+\subsection*{(ii)}
+Ich begründe auf Schulniveau, da man es ja Schülern erklären soll.
+\subsubsection*{(a)}
+Wenn man den Vektor $\vec{b}_{\parallel}$ nach oben verschiebt, so sieht man, dass $\vec{b} = \vec{b}_{\perp} + \vec{b}_{\parallel}$. Setz man nun für $\vec{b}$ ein, erhält man: $\vec{a} \cdot \vec{b} = \vec{a} \cdot (\vec{b}_{\perp} + \vec{b}_{\parallel})$
+
+\subsubsection*{(a)}
+Das ist die Begründung warum das Skalarprodukt distributiv ist:
+\begin{align*} 
+    \vec{a} \cdot (\vec{b} + \vec{c})  
+    &=  
+    \begin{pmatrix} a_1 \\ a_2 \end{pmatrix} \cdot \left( \begin{pmatrix} b_1 \\
+    b_2 \end{pmatrix} + \begin{pmatrix} c_1 \\ 
+    c_2 \end{pmatrix} \right) \\
+    &=  \begin{pmatrix} a_1 \\ a_2 \end{pmatrix} \cdot \begin{pmatrix} b_1 + c_1 \\ b_2 + c_2 \end{pmatrix} \\[1em] 
+    &= a_1 (b_1 + c_1) + a_2 (b_2 + c_2) \\[1em] 
+    &= (a_1 b_1 + a_2 b_2) + (a_1 c_1 + a_2 c_2) \\[1em] 
+    &= \vec{a} \cdot \vec{b} + \vec{a} \cdot \vec{c} 
+\end{align*}
+Und somit ist $\vec{a} \cdot (\vec{b}_{\perp} + \vec{b}_{\parallel}) = \vec{a} \cdot \vec{b}_{\perp} + \vec{a} \cdot \vec{b}_{\parallel}$
+
+\subsubsection*{(b)}
+Hab keine Zeit mehr...
+
+\subsubsection*{(c)}
+Das Skalarprodukt gibt die Maßzahl des Flächeninhalts eines Rechtecks an, dessen Seitenlängen die Länge eines Vektors und die Länge der Projektion des anderen Vektors sind
+\end{document}

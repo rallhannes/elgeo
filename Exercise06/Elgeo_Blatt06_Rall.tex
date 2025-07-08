@@ -1,0 +1,197 @@
+%! TEX program = lualatex
+\documentclass[12pt,a4paper]{article} 
+
+% Packages for formatting
+\usepackage{fontspec}
+\usepackage[ngerman]{babel}
+\usepackage{geometry} 
+\geometry{margin=1in} 
+\usepackage{setspace} 
+\usepackage{hyperref} 
+\usepackage{xcolor}
+\usepackage{amsmath} % for align*
+\usepackage{amsthm} % neue Theorem-Umgebungen
+\usepackage{enumitem} % für schöne Listen (Teilaufgaben)
+\usepackage{mathbbol}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{gensymb}
+
+% Style settings
+%\pagecolor{darkgray}      % sets background color to black 
+%\color{gray}          % sets text color to white
+
+% Change subsection to use a, b, c instead of 1, 2, 3
+\renewcommand{\thesubsection}{\alph{subsection})}
+
+% Title page info 
+\title{Blatt 06}
+\author{Hannes Rall \\ Albert-Ludwigs-University}
+\date{\today}
+
+\begin{document}
+% Title page 
+\begin{titlepage}
+    \centering
+    \vspace*{2cm}
+    {\Huge\itshape Blatt 06\par}
+    \vspace{2cm}
+    {\Large\textsc{Hannes Rall}\par}
+    \vfill
+    {\large Albert-Ludwigs-University\\}
+    \vspace{1cm}
+    {\large\today\par}
+\end{titlepage}
+\newpage
+\section*{Aufgabe 17}
+Sei ABCD ein Viereck (Punkte gegen den Uhrzeigersinn benannt) mit |AB| = |CD|. Sei E bzw. F der
+Mittelpunkt von AD bzw. BC. Die Geraden $g_{CD}$ und $g_{FE}$ schneiden sich in G und $g_{AB}$ und $g_{FE}$ in H.\\
+
+\noindent Gegeben seien die Ortsvektoren der Punkte:
+\[
+\vec{a} = \overrightarrow{OA}, \quad
+\vec{b} = \overrightarrow{OB}, \quad
+\vec{c} = \overrightarrow{OC}, \quad
+\vec{d} = \overrightarrow{OD}
+\]
+
+\noindent Die Mittelpunkte:
+\[
+\vec{e} = \overrightarrow{OE} = \frac{\vec{a} + \vec{d}}{2}, \qquad
+\vec{f} = \overrightarrow{OF} = \frac{\vec{b} + \vec{c}}{2}
+\]
+
+\noindent Zuerst zeige ich zwei Dinge, das macht den Beweis später übersichtlicher.
+
+\noindent (1) Die Bedingung $|\vec{b} - \vec{a}|^2 = |\vec{d} - \vec{c}|^2$ liefert:
+
+\begin{align*}
+    & (\vec{b} - \vec{a}) \cdot (\vec{b} - \vec{a}) = (\vec{d} - \vec{c}) \cdot (\vec{d} - \vec{c})\\
+    & \Leftrightarrow \vec{b} \cdot \vec{b} - 2\vec{a} \cdot \vec{b} + \vec{a} \cdot \vec{a} = \vec{d} \cdot \vec{d} - 2\vec{c} \cdot \vec{d} + \vec{c} \cdot \vec{c}\\
+    & \Leftrightarrow \vec{b} \cdot \vec{b} - 2\vec{a} \cdot \vec{b} + \vec{a} \cdot \vec{a} - \vec{d} \cdot \vec{d} + 2\vec{c} \cdot \vec{d} - \vec{c} \cdot \vec{c} = 0
+\end{align*}
+
+\noindent (2) $\langle \vec{v}, \vec{u} \rangle = 0$ mit:
+\[
+\vec{u} = \vec{f} - \vec{e}
+\]
+\[
+\vec{v} = \vec{f} - \vec{c} - \vec{e} + \vec{d}
+\]
+
+\noindent Berechne zunächst $\vec{u}$:
+\[
+\vec{u} = \frac{\vec{b} + \vec{c}}{2} - \frac{\vec{a} + \vec{d}}{2}
+= \frac{\vec{b} + \vec{c} - \vec{a} - \vec{d}}{2}
+\]
+
+\noindent Berechne $\vec{v}$:
+\begin{align*}
+\vec{v} &= \left( \frac{\vec{b} + \vec{c}}{2} - \vec{c} \right) - \frac{\vec{a} + \vec{d}}{2} + \vec{d} \\
+&= \frac{\vec{b} + \vec{c} - 2\vec{c}}{2} - \frac{\vec{a} + \vec{d}}{2} + \vec{d} \\
+&= \frac{\vec{b} - \vec{c}}{2} - \frac{\vec{a} + \vec{d}}{2} + \vec{d} \\
+&= \frac{\vec{b} - \vec{c} - \vec{a} - \vec{d} + 2\vec{d}}{2} \\
+&= \frac{\vec{b} - \vec{c} - \vec{a} + \vec{d}}{2}
+\end{align*}
+
+\noindent Das Skalarprodukt:
+\[
+\langle \vec{v}, \vec{u} \rangle = 
+\left\langle 
+\frac{\vec{b} - \vec{c} - \vec{a} + \vec{d}}{2},\ 
+\frac{\vec{b} + \vec{c} - \vec{a} - \vec{d}}{2} 
+\right\rangle 
+= \frac{1}{4} \langle 
+\vec{b} - \vec{c} - \vec{a} + \vec{d},\ 
+\vec{b} + \vec{c} - \vec{a} - \vec{d} 
+\rangle
+\]
+
+\noindent Setze $X = \vec{b} - \vec{c} - \vec{a} + \vec{d}$ und $Y = \vec{b} + \vec{c} - \vec{a} - \vec{d}$, dann:
+
+\begin{align*}
+\langle X, Y \rangle 
+&= (\vec{b} - \vec{c} - \vec{a} + \vec{d}) \cdot (\vec{b} + \vec{c} - \vec{a} - \vec{d}) \\
+&= \vec{b} \cdot \vec{b} + \vec{b} \cdot \vec{c} - \vec{b} \cdot \vec{a} - \vec{b} \cdot \vec{d} \\
+&\quad - \vec{c} \cdot \vec{b} - \vec{c} \cdot \vec{c} + \vec{c} \cdot \vec{a} + \vec{c} \cdot \vec{d} \\
+&\quad - \vec{a} \cdot \vec{b} - \vec{a} \cdot \vec{c} + \vec{a} \cdot \vec{a} + \vec{a} \cdot \vec{d} \\
+&\quad + \vec{d} \cdot \vec{b} + \vec{d} \cdot \vec{c} - \vec{d} \cdot \vec{a} - \vec{d} \cdot \vec{d}
+\end{align*}
+
+\noindent Fasse gleichartige Terme zusammen:
+
+\begin{align*}
+&\vec{b} \cdot \vec{b} - \vec{c} \cdot \vec{c} + \vec{a} \cdot \vec{a} - \vec{d} \cdot \vec{d} \\
+&- 2 (\vec{a} \cdot \vec{b}) + 2 (\vec{c} \cdot \vec{d})
+\end{align*}
+
+\noindent Umgestellt und (1) verwenden:
+\[
+\vec{b} \cdot \vec{b} + \vec{a} \cdot \vec{a} - 2\vec{a} \cdot \vec{b} - \vec{d} \cdot \vec{d} - \vec{c} \cdot \vec{c} + 2\vec{c} \cdot \vec{d} = 0
+\]
+
+\noindent Das ist genau der Ausdruck für das Skalarprodukt $\langle X, Y \rangle$.
+
+\noindent Also:
+\[
+\langle \vec{v}, \vec{u} \rangle = \frac{1}{4} \cdot 0 = 0
+\]
+\[
+    \langle \vec{f} - \vec{c} - \vec{e} + \vec{d}, \vec{f} - \vec{e} \rangle = 0
+\]
+
+\noindent Nun zum eigentlichen Beweis. Ich verwende, dass $\angle BHF$ der Winkel ist, der von den Geraden $g_{AB}$ und $g_{FE}$ eingeschlossen wird (analog $\angle CGF$) und so können wir über die Richtungsvektoren der Geraden die Winkel bestimmen: \\
+\begin{align*}
+    \cos(\angle BHF) &= \frac{\langle \vec{b} - \vec{a}, \vec{f} - \vec{e} \rangle}{|\vec{b} - \vec{a}||\vec{f} - \vec{e}|}\\
+                     &= \frac{\langle \vec{c} + 2(\vec{f} - \vec{e}) - (\vec{d} + 2(\vec{e} - \vec{d))}, \vec{f} - \vec{e} \rangle}{|\vec{b} - \vec{a}||\vec{f} - \vec{e}|}\\
+                     &= \frac{\langle \vec{c} - \vec{d} + 2(\vec{f} - \vec{c}) - 2(\vec{e} - \vec{d}), \vec{f} - \vec{e} \rangle}{|\vec{b} - \vec{a}||\vec{f} - \vec{e}|}\\
+                     &= \frac{\langle \vec{c} - \vec{d}, \vec{f} - \vec{e} \rangle + \langle 2(\vec{f} - \vec{c}) - 2(\vec{e} - \vec{d}), \vec{f} - \vec{e} \rangle}{|\vec{b} - \vec{a}||\vec{f} - \vec{e}|}\\
+                     &= \frac{\langle \vec{c} - \vec{d}, \vec{f} - \vec{e} \rangle + 2\langle (\vec{f} - \vec{c}) - (\vec{e} - \vec{d}), \vec{f} - \vec{e} \rangle}{|\vec{b} - \vec{a}||\vec{f} - \vec{e}|}\\
+                     &= \frac{\langle \vec{c} - \vec{d}, \vec{f} - \vec{e} \rangle + 2\langle \vec{f} - \vec{c} - \vec{e} + \vec{d}, \vec{f} - \vec{e} \rangle}{|\vec{b} - \vec{a}||\vec{f} - \vec{e}|}\\
+                     &= \frac{\langle \vec{c} - \vec{d}, \vec{f} - \vec{e} \rangle}{|\vec{b} - \vec{a}||\vec{f} - \vec{e}|} = \frac{\langle \vec{c} - \vec{d}, \vec{f} - \vec{e} \rangle}{|\vec{c} - \vec{d}||\vec{f} - \vec{e}|} = \cos(\angle CGF)
+\end{align*}
+
+\newpage
+\section*{Aufgabe 18}
+
+\subsection*{(i)}
+
+Günther Malle beschreibt verschiedene Schwierigkeiten, die Schülerinnen und Schüler beim Erlernen des Vektorbegriffs zeigen:
+
+\begin{itemize}
+    \item \textbf{Identifikation von Vektoren mit Pfeilen:} Viele Lernende setzen Vektoren mit konkreten Pfeilen gleich. Sie erkennen nicht, dass ein Vektor unabhängig vom Ort des Pfeils im Raum ist, sondern betrachten Pfeile an verschiedenen Orten als unterschiedliche Objekte.
+    \item \textbf{Geometrische statt algebraische Sichtweise:} Vektoren werden überwiegend als geometrische Objekte (Pfeile) verstanden und weniger als abstrakte Zahlenpaare oder -tripel, was zu Unsicherheiten bei algebraischen Operationen führt.
+    \item \textbf{Probleme mit dem Nullvektor:} Der Nullvektor wird oft nur als Punkt (z.\,B. Ursprung) interpretiert und nicht als Pfeil mit der Länge Null.
+    \item \textbf{Formalisierung von Sachproblemen:} Während Standardrechenverfahren meist beherrscht werden, fällt es schwer, reale Problemsituationen eigenständig vektoriell zu modellieren.
+\end{itemize}
+
+\noindent \textbf{Genannte Gründe:}
+\begin{itemize}
+    \item Der Unterricht orientiert sich häufig am Pfeilklassenmodell, das Vektoren als Äquivalenzklassen paralleler, gleichlanger und gleich orientierter Pfeile definiert. Diese Abstraktion ist für viele Lernende schwer zugänglich.
+    \item Es fehlt oft eine klare Unterscheidung zwischen Punkten (Ortsvektoren) und Richtungsvektoren, was zu Missverständnissen und fehlerhaften Schreibweisen führt.
+\end{itemize}
+
+\newpage 
+\subsection*{(ii)}
+\noindent \textbf{Definition der Äquivalenzrelation:}\\
+Wir betrachten die Menge aller geordneten Punktpaare $(A, B)$ einer Ebene.\\
+\noindent Zwei Punktpaare $(A, B)$ und $(C, D)$ heißen zueinander \emph{äquivalent}, wenn gilt:
+\begin{enumerate}
+    \item Die Strecken $AB$ und $CD$ sind parallel,
+    \item $|AB| = |CD|$ (gleiche Länge),
+    \item Die Orientierung von $AB$ und $CD$ ist gleich (d.\,h. die Pfeile zeigen in die gleiche Richtung).
+\end{enumerate}
+
+\noindent \textbf{Beweis, dass es sich um eine Äquivalenzrelation handelt:}
+\begin{itemize}
+    \item \textbf{Reflexivität:} Für jedes Punktpaar $(A, B)$ gilt offensichtlich $(A, B) \sim (A, B)$.
+    \item \textbf{Symmetrie:} Gilt $(A, B) \sim (C, D)$, so sind $AB$ und $CD$ parallel, gleich lang und gleich orientiert; somit gilt auch $(C, D) \sim (A, B)$.
+    \item \textbf{Transitivität:} Gilt $(A, B) \sim (C, D)$ und $(C, D) \sim (E, F)$, so sind $AB$, $CD$ und $EF$ alle parallel, gleich lang und gleich orientiert, also $(A, B) \sim (E, F)$.
+\end{itemize}
+
+\noindent \textbf{Definition der Pfeilklasse:}\\
+\noindent Die \emph{Pfeilklasse} eines Punktpaares $(A, B)$ ist die Menge aller Punktpaare $(X, Y)$, für die $(A, B) \sim (X, Y)$ gilt. Formal:
+\[
+[(A, B)] := \{ (X, Y) \mid (A, B) \sim (X, Y) \}
+\]
+\end{document}
