@@ -1,0 +1,110 @@
+%! TEX program = lualatex
+\documentclass[12pt,a4paper]{article} 
+
+% Packages for formatting
+\usepackage{fontspec}
+\usepackage[ngerman]{babel}
+\usepackage{geometry} 
+\geometry{margin=1in} 
+\usepackage{setspace} 
+\usepackage{hyperref} 
+\usepackage{xcolor}
+\usepackage{amsmath, amssymb} % for align*
+\usepackage{amsthm} % neue Theorem-Umgebungen
+\usepackage{enumitem} % für schöne Listen (Teilaufgaben)
+\usepackage{mathbbol}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{gensymb}
+\usepackage{stackengine}
+
+\DeclareMathAlphabet\mathbb{U}{fplmbb}{m}{n}
+% Style settings
+\pagecolor{darkgray}      % sets background color to black 
+\color{gray}          % sets text color to white
+
+% Change subsection to use a, b, c instead of 1, 2, 3
+\renewcommand{\thesubsection}{\alph{subsection})}
+\newcommand{\zz}{\stackinset{c}{2.5pt}{c}{-2.5pt}{\textsf{Z}}{\textsf{Z}}}
+% Title page info 
+\title{Blatt 10}
+\author{Hannes Rall \\ Albert-Ludwigs-University}
+\date{\today}
+
+\begin{document}
+% Title page 
+\begin{titlepage}
+    \centering
+    \vspace*{2cm}
+    {\Huge\itshape Blatt 10\par}
+    \vspace{2cm}
+    {\Large\textsc{Hannes Rall}\par}
+    \vfill
+    {\large Albert-Ludwigs-University\\}
+    \vspace{1cm}
+    {\large\today\par}
+\end{titlepage}
+
+\newpage
+\section*{Aufgabe 28}
+\subsection*{(i) Füllen Sie den Lückentext:}
+\zz : Für je zwei nichtparallele Geraden gibt es genau einen Punkt der auf diesen beiden Geraden liegt.\\
+\
+\begin{proof}
+Seien $g$ und $h$ die zwei nichtparallelen Geraden. Nach Vorraussetzung (Geraden sind nichtparallel) muss es damit mindestens einen Punkt $p$ geben, der auf $g$ und $h$ liegt. Wir müssen nun zeigen, dass dies der einzige solche Punkt ist. Das zeigen wir mit einem Widerspruchsbeweis. Sei dazu auch q ein Punkt der auf g und h liegt mit $q \neq p$. Nach I1 gibt es genau eine Gerade, auf der $p$ und $q$ liegen, also muss $g=h$ sein, was den Widerspruch dazu gibt, dass g und h nichtparallel sind.
+\end{proof}
+
+\subsection*{(ii) Zeigen Sie die folgenden Aussagen und spezifizieren Sie dabei in jedem Schritt, welches Axiom sie
+verwenden.}
+\subsubsection*{(a)} 
+\zz : Für jeden Punkt gibt es mindestens zwei verschiedene Geraden, so dass der Punkt auf beiden liegt.
+\begin{proof}
+Sei $P$ ein Punkt. Nach (I3) gibt es drei kollineare Punkte. Seien diese Punkte $A, B, C$. \\
+\\
+1. Fall: $P$ liegt auf einer der Geraden welche durch die kollinearen Punkte gehen. \\ 
+Sei o.B.d.A. $P \in g_{AB}$. Dann gibt es nach (I1) eine Gerade $g_{PC}$ welche durch $P$ und $C$ geht und ungleich $g_{AB}$ sein muss, da sonst $A, B, C$ nicht kollinear wären. Somit ist $P \in g_{AB}$ und $P \in g_{PC}$. \\
+\\
+2. Fall: $P$ liegt nicht auf einer der Geraden welche durch die kollinearen Punkte gehen. \\
+Dann sind $A, B, P$ (bzw. $A, C, P$ und $B, C, P$) kollinear.
+Nach (I1) gibt es eine eindeutige Gerade $g_{AP}$ und eine eindeutige Gerade $g_{BP}$ welche ungleich sind, da $A, B, P$ kollinear und es ist $P \in g_{AP}$ und $P \in g_{BP}$.
+\end{proof}
+
+\newpage
+\subsubsection*{(b)} 
+\zz : Sei $g$ eine Gerade. Dann gibt es Geraden $h, l$, so dass $g, h$ und $l$ paarweise verschieden sind und sodass sowohl $h$ als auch $l$ die Gerade $g$ schneiden.
+\begin{proof}
+Sei $g$ eine Gerade. Seien $A, B, C$ wieder die drei kollinearen Punkte die es gibt nach (I3).\\
+\\
+1. Fall: Die Gerade $g$ geht durch o.B.d.A $A$ und $B$.\\
+Nach (I1) gibt es genau eine Gerade durch zwei verschiedene Punkt, die Gerade $h = g_{AC}$ durch $A$ und $C$, sowie die Gerade $l = g_{BC}$ durch $B$ und $C$. Dadurch das $A, B, C$ kollinear sind, sind $g_{AB}, g_{AC}$ und $g_{BC}$ paarweise verschiedenen und es schneiden sich $g_{AB}$ und $g_{AC}$ im Punkt $A$ und $g_{AB}$ und $g_{BC}$ im Punkt $B$.\\
+\\
+2. Fall: Die Gerade $g$ verläuft durch keines der Punktpaare $A, B$; $A, C$ oder $B, C$.\\
+Dann gibt es nach (I2) zwei Punkte $P, Q$ welche auf der Geraden liegen. Nun kann einer der Punkt $A, B, C$ noch auf einer Geraden liegen, jedoch nur genau einer. O.B.d.A sei $A$ nicht dieser Punkt. Dann gibt es nach (I1) eine Gerade $g_{PA}$ und eine Gerade $g_{QA}$. Diese Geraden schneiden $g$ in $P$ bzw $Q$ und sind verschieden, da $P \notin g_{QA}$ und $Q \notin g_{PA}$. Falls $B$ bzw. $C$ auf der Geraden g liegen, dann ist $P=B$ bzw $P=C$.
+\end{proof}
+
+\newpage
+\section*{Aufgabe 29}
+\subsubsection*{(i)}
+\zz: Parallelität ist in affinen Ebenen eine Äquivalenzrelation auf der Menge der Geraden. \\
+\begin{proof} Sei $g \sim_p h$, wenn $g \parallel h$. Seien $g$, $h$ und $k$ Geraden und es gilt $g \parallel h$ also $(g \sim_p h)$ und $h \parallel k$ also $(h \sim_p k)$.  \\
+Nach Definition V.2.1. Geraden $g$ und $h$ sind parallel, wenn $g$ und $h$ keinen gemeinsamen Punkt haben oder $g = h$. \\
+\\
+Reflexivität: \\
+Da $g=g$, folgt $g \sim_p g$.\\
+\\
+Symmetrie: \\
+Es gilt $g \sim_p h$. Wenn $g$ und $h$ keine gemeinsamen Punkte haben, so haben auch $h$ und $g$ keine gemeinsamen Punkte und ist $h \parallel g$ also $h \sim_p g$. Wenn $g=h$, dann ist $h=g$ und es folgt $h \parallel g$, also $h \sim_p g$.\\
+\\
+Transitivität:\\
+Es gilt $g \sim_p h$ und $h \sim_p k$. Angenommen $g$ und $k$ wären nichtparallel. Dann hätten sie nach Aufgabe 28 einen gemeinsamen Punkt. Sei $P$ dieser Punkt. Nach Parallelenaxiom gibt es genau eine parallele Gerade zu $h$ die den Punkt $P$ enthält und dann wäre $g=k$ was ein Wiederspruch wäre zu $g$ und $k$ sind nichtparallel.
+\end{proof}
+
+\subsubsection*{(ii)}
+\zz: Eine affine Ebene ist eine Inzidenzgeometrie.
+\begin{proof}
+Per Definition ist eine affine Ebene eine Inzidenzstruktur welche (I1), (I3) und das strenge Parallelenaxiom erfüllt. Nun muss noch gezeigt werden, dass dann auch (I2) gilt. \\
+Angenommen, es gibt eine Gerade $g \in G$ mit $g = \{P\}$, also enthält $g$ nur den Punkt $P$.\\
+Nach (I3) existieren mindestens drei Punkte $A, B, C \in P$, die nicht auf einer gemeinsamen Geraden liegen.\\
+
+\end{proof}
+\end{document}
